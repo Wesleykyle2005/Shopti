@@ -1,0 +1,92 @@
+{% for product in products %}
+    <div class="col mb-1 p-2"> 
+        <div class="card cardbg h-100">
+            <img class="card-img-top" src="{{ product.image_url }}" alt="{{ product.name }}" />
+
+            <div class="card-body px-1">
+                <div class="text-center">
+                    <h5 class="fw-bolder">{{ product.name }}</h5>
+
+                    {# Etiquetas de categoría clicables para filtrado rápido #}
+                    <div class="d-flex justify-content-center small text-warning mb-2">
+                        {% for category in product.categories.all %}
+                        <a href="?category={{ category.id }}{% if selected_store %}&store={{ selected_store }}{% endif %}"
+                           class="badge bg-secondary mx-1 custom-link">
+                            {{ category.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    
+                    <strong>C$</strong>{{ product.price }}
+
+                    {# Botón para abrir modal con detalles #}
+                    <div class="card-footer p-0 pt-0 border-top-0 bg-transparent">
+                        <button class="btn btncustomize mt-2 view-more"
+                                data-bs-toggle="modal"
+                                data-bs-target="#productModal"
+                                data-id="{{ product.id }}"
+                                data-name="{{ product.name }}"
+                                data-description="{{ product.description }}"
+                                data-price="{{ product.price }}"
+                                data-image="{{ product.image_url }}"
+                                data-available-units="{{ product.available_units }}">
+                            Ver más
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{# Modal de detalle reutilizable, campos completados con JavaScript al hacer clic #}
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content gbmodal">
+            <div class="modal-header">
+                <h1 class="modal-title fs-4" id="productModalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="alert-container" class="position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img id="productModalImage" src="" alt="" class="img-fluid mb-3 rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Descripción:</strong>
+                        <p id="productModalDescription" class="mb-3"></p>
+                        <p>
+                            <strong>Precio: C$</strong>
+                            <span id="productModalPrice"></span>
+                        </p>
+
+                        {# Formulario para seleccionar cantidad y añadir al carrito (procesado por JS) #}
+                        <form id="modalAddToCartForm" action="#" method="post" class="form-control gbmodal" onsubmit="return false;">
+                            <input type="hidden" name="product_id" id="modalProductId">
+                            <div class="d-flex flex-column ">
+                                <p>Elija la cantidad de productos:</p>
+                                <p><strong>Disponibles:</strong> <span id="available_units"></span></p>
+                                <input class="my-1 form-control"
+                                       type="number"
+                                       name="quantity"
+                                       id="modalProductQuantity"
+                                       value="1"
+                                       min="1">
+                                <button type="button" class="btn btncustomize mt-2" id="modalAddToCartButton">
+                                    Añadir al carrito
+                                </button>
+                            </div>
+                        </form>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

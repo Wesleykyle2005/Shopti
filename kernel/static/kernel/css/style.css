@@ -1,0 +1,90 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; 
+    letter-spacing: 0.075rem;
+    font-size: 1rem;
+    background-color: #FEFEFE;
+}
+.btncustomize{
+    background-color: #47A604;
+    color: #FEFEFE;
+}
+.btncustomize:hover{
+    background-color: #118C3C;
+    color: #FEFEFE;
+}
+.cardbg{
+    background-color: #F1B907;
+}
+.gbmodal{
+    background-color: #afeeee;
+}
+.bannergb {
+    background-color: #BF0B0C;  
+}
+.slogantext{
+    color: #FEFEFE;
+}
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.1rem; 
+    font-size: 2.5rem; 
+}
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.1rem; 
+    font-size: 1.75rem;
+}
+h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.1rem; 
+    font-size: 1.5rem; 
+}
+h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.1rem; 
+    font-size: 1.25rem; 
+}
+h5 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.1rem; 
+    font-size: 1rem;
+}
+h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 0.1rem; 
+    font-size: 0.875rem;
+}
+p {
+    font-size: 0.875rem;
+}
+li {
+    font-size: 0.875rem;
+}
+
+#alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    width: auto;
+    max-width: 300px;
+}
+.alert-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.custom-icon-size {
+    font-size: 2rem;
+}
+.custom-link {
+    color: #fff;
+    text-decoration: none;
+}
