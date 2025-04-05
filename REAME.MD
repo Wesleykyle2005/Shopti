@@ -28,7 +28,7 @@ La aplicación está organizada en varios módulos que manejan diferentes aspect
   Módulo principal que maneja la vista de inicio, la autenticación de usuarios y el layout general del sitio.
 
 - **`stores/`**  
-  Módulo para la gestión de tiendas. Incluye el modelo de tienda, integración con mapas (Leaflet.js) y la visualización de las ubicaciones.
+  Módulo para la gestión de tiendas. Incluye el modelo de tienda, integración con mapas (Leaflet.js) y la visualización de las ubicaciones
 
 - **`products/`**  
   Módulo para administrar productos y categorías. Permite listar productos, filtrar por tienda y categoría, y organizar la información con paginación.
